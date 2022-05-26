@@ -1,4 +1,4 @@
-# Configure ArgoCD with UBC
+# Configure ArgoCD with Upbound Cloud
 To configure argoCD to work with UBC, we need to conifgue it to ignore resources UBC blcoks List on. The `argocd-cm` ConfigMap in the
 argocd namespace is where this is configured. The following manifest should be applied to argocd namespace (Replace cluster URL with the URL in your kubeconfig for the UBC cluster, add multiple UBC cluster URLs if configuring multiple):
 
