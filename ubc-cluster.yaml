@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ubc-secret
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: cluster
+type: Opaque
+stringData:
+  name: ubc
+  server: <Replace here with the url to UBC cluster from kubeconfig>
+  config: |
+    {
+      "bearerToken": "<Replace here with token field in kubeconfig for UBC context>",
+      "tlsClientConfig": {
+        "insecure": false,
+        "caData": ""
+      }
+    }
