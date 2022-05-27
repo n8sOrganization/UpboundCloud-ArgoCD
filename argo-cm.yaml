@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-cm
+  namespace: argocd
+data:
+  resource.exclusions: |
+    - apiGroups:
+      - ""
+      - "velero.io"
+      - "storage.k8s.io"
+      - "scheduling.k8s.io"
+      - "crossplanecluster.cloud.upbound.io"
+      - "policy"
+      - "node.k8s.io"
+      - "networking.k8s.io"
+      - "flowcontrol.apiserver.k8s.io"
+      - "extensions"
+      - "discovery.k8s.io"
+      - "crossplanecluster.cloud.upbound.io"
+      - "coordination.k8s.io"
+      - "certificates.k8s.io"
+      - "batch"
+      - "autoscaling"
+      - "authorization.k8s.io"
+      - "apps"
+      - "apiregistration.k8s.io"
+      - "admissionregistration.k8s.io"
+      - "rbac.authorization.k8s.io"
+      kinds:
+      - "*"
+      clusters:
+      -  <Replace here with the url to UBC cluster from kubeconfig>
+    - apiGroups:
+      - pkg.crossplane.io
+      kinds:
+      - "Lock"
+      - "ControllerConfig"
+      clusters:
+      -  <Replace here with the url to UBC cluster from kubeconfig>
