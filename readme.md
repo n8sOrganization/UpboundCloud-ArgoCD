@@ -73,7 +73,3 @@ stringData:
       }
     }
 ```
-
-## Note
-Until Crossplane is fixed to not propogate labels from XRC to XR, we need to configure deny rules at the argoCD project level. In
-this case you define a Deny rule in the project settings from within argoCD UI and deny the XR APIs (e.g. XNetwork, etc.). You lose the detail of related resources in argocd ui, but we should have all of the relevant info reflected back to XRC either way. The other option is to not use XRC.
